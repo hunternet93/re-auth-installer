@@ -17,7 +17,7 @@ font = ('Trebuchet MS', 16, 'bold')
 import platform
 import os
 
-if platform.python_version_tuple()[0] == 2:
+if platform.python_version_tuple()[0] == '2':
     from Tkinter import *
     import tkMessageBox as tkmessagebox
 else:

@@ -2,7 +2,13 @@
 # Red Eclipse Auth Installer
 # https://github.com/hunternet93/re-auth-installer
 
-#TODO #Windows: http://stackoverflow.com/questions/112698/py2exe-generate-single-executable-file
+# ==============================
+# Define colors to use in the UI
+# ==============================
+
+bgcolor = "#000000"
+textcolor = "#B11000"
+font = ('Trebuchet MS', 16, 'bold')
 
 # ======================================
 # Imports, with Python-version detection
@@ -103,17 +109,21 @@ def install():
 # ==========================
 root = Tk()
 root.title('Red Eclipse Auth Installer')
-root.minsize(500,400)
+root.config(bg = bgcolor)
+root.minsize(400,200)
 
-Label(root, text = 'Username:').pack()
-usernamebox = Entry(root)
+frame = Frame(root, bg = bgcolor)
+frame.pack(fill = BOTH, expand = 1, padx = 20, pady = 20)
+
+Label(frame, text = 'Username:', bg = bgcolor, fg = textcolor, font = font).pack()
+usernamebox = Entry(frame, fg = textcolor, font = font)
 usernamebox.pack(fill = X)
 
-Label(root, text = 'Auth Key:').pack()
-keybox = Entry(root)
+Label(frame, text = 'Auth Key:', bg = bgcolor, fg = textcolor, font = font).pack()
+keybox = Entry(frame, fg = textcolor, font = font)
 keybox.pack(fill = X)
 
-Button(root, text = 'Install Key', command = install).pack(anchor = S, expand = 1)
+Button(frame, text = 'Install Key', command = install, fg = textcolor, font = font).pack(anchor = S, expand = 1)
 
 # =========================
 # Run the Tkinter main loop
